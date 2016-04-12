@@ -1,22 +1,17 @@
 # Android 进程保活的研究与实践
 
 
-
-
-
-
-
-
-Service的exported属性有何用？
-
-LocalBroadcastManager能够在自己app内的进程间传递数据吗？？？
-
-oom_adj的值是从哪里来的？作用的出处在哪？？？Google文档自己有说吗？
+oom_adj的值为判断依据是从哪里来的？作用的出处在哪？？？Google文档自己有说吗？
 
 adb shell dumpsys 的命令还能怎么玩？
 
+很多app靠着系统格式各样的广播来唤醒自己，Android N 收回了很多权限，撂倒了一大批厂商。
+
 LBE是如何分析唤醒路径的。
 
+push进程如何实现代码唤醒UI进程？
+
+引发延伸，Android N 取消了网络广播 和 继续坚持 Doze Mode，需要做适配.
 
 相关资料：
 

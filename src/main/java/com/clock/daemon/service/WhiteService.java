@@ -7,14 +7,19 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.support.v7.app.NotificationCompat;
 import android.util.Log;
-import android.widget.RemoteViews;
 
 import com.clock.daemon.MainActivity;
 import com.clock.daemon.R;
 
-public class ForegroundService extends Service {
+/**
+ * 正常的系统前台进程，会在系统通知栏显示一个Notification通知图标
+ *
+ * @author clock
+ * @since 2016-04-12
+ */
+public class WhiteService extends Service {
 
-    private final static String TAG = ForegroundService.class.getSimpleName();
+    private final static String TAG = WhiteService.class.getSimpleName();
 
     private final static int FOREGROUND_ID = 1000;
 

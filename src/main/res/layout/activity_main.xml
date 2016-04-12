@@ -9,26 +9,27 @@
     android:paddingTop="@dimen/activity_vertical_margin">
 
     <Button
-        android:id="@+id/btn_foreground_service"
+        android:id="@+id/btn_white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="正常前台 Service" />
+        android:text="白色保活" />
+
+    <Button
+        android:id="@+id/btn_gray"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="灰色保活" />
+
+    <Button
+        android:id="@+id/btn_black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="黑色保活" />
 
     <Button
         android:id="@+id/btn_background_service"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="正常后台 Service" />
+        android:text="一个后台 Service 进程" />
 
-    <Button
-        android:id="@+id/btn_bug_service"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="漏洞 Service" />
-
-    <Button
-        android:id="@+id/btn_send_broadcast"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="发送一个广播" />
 </LinearLayout>

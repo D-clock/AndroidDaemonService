@@ -18,17 +18,35 @@
             </intent-filter>
         </activity>
 
-        <service
-            android:name=".service.ForegroundService"
-            android:enabled="true"
-            android:exported="false"
-            android:process=":foreground" />
-
         <receiver
-            android:name=".receiver.GeneralReceiver"
+            android:name=".receiver.WakeReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.clock.wake" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".service.WhiteService"
             android:enabled="true"
             android:exported="false"
-            android:process=":foreground" />
+            android:process=":white" />
+        <service
+            android:name=".service.GrayService"
+            android:enabled="true"
+            android:exported="false"
+            android:process=":gray" />
+        <service
+            android:name=".service.BlackService"
+            android:enabled="true"
+            android:exported="false"
+            android:process=":black" />
+        <service
+            android:name=".service.BackgroundService"
+            android:enabled="true"
+            android:exported="false"
+            android:process=":bg" />
     </application>
 
 </manifest>
