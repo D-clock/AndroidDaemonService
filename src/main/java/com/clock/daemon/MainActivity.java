@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.clock.daemon.service.BackgroundService;
+import com.clock.daemon.service.GrayService;
 import com.clock.daemon.service.WhiteService;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -30,6 +31,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startService(whiteIntent);
 
         } else if (viewId == R.id.btn_gray) {//利用系统漏洞，灰色保活手段（API < 18 和 API >= 18 两种情况）
+            Intent grayIntent = new Intent(this, GrayService.class);
+            startService(grayIntent);
 
         } else if (viewId == R.id.btn_black) { //拉帮结派，黑色保活手段
 

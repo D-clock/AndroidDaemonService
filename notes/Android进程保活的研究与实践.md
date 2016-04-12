@@ -1,9 +1,14 @@
 # Android 进程保活的研究与实践
 
 
+isForeground=true 标记着这个进程为前台进程。
+
+看看 ServiceRecord 里面的代码，是如何让微信的代码实现那两种bug的方式的
+
 oom_adj的值为判断依据是从哪里来的？作用的出处在哪？？？Google文档自己有说吗？
 
-adb shell dumpsys 的命令还能怎么玩？
+
+
 
 很多app靠着系统格式各样的广播来唤醒自己，Android N 收回了很多权限，撂倒了一大批厂商。
 
