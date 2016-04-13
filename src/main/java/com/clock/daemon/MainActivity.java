@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else if (viewId == R.id.btn_background_service) {//普通的后台进程
             Intent bgIntent = new Intent(this, BackgroundService.class);
             startService(bgIntent);
+
         }
     }
 }

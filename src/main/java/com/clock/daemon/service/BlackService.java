@@ -17,8 +17,14 @@ public class BlackService extends Service {
 
     @Override
     public void onCreate() {
-        Log.i(TAG , "onCreate");
+        Log.i(TAG, "BlackService->onCreate");
         super.onCreate();
+    }
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        Log.i(TAG, "BlackService->onStartCommand");
+        return super.onStartCommand(intent, flags, startId);
     }
 
     @Override
@@ -29,7 +35,7 @@ public class BlackService extends Service {
 
     @Override
     public void onDestroy() {
-        Log.i(TAG , "onDestroy");
+        Log.i(TAG, "BlackService->onDestroy");
         super.onDestroy();
     }
 }

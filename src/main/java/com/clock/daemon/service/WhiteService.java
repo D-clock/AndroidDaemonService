@@ -25,13 +25,13 @@ public class WhiteService extends Service {
 
     @Override
     public void onCreate() {
-        Log.i(TAG, "ForegroundService->onCreate");
+        Log.i(TAG, "WhiteService->onCreate");
         super.onCreate();
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.i(TAG, "ForegroundService->onStartCommand");
+        Log.i(TAG, "WhiteService->onStartCommand");
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
         builder.setSmallIcon(R.mipmap.ic_launcher);
@@ -55,7 +55,7 @@ public class WhiteService extends Service {
 
     @Override
     public void onDestroy() {
-        Log.i(TAG, "ForegroundService->onDestroy");
+        Log.i(TAG, "WhiteService->onDestroy");
         super.onDestroy();
     }
 }
