@@ -1,5 +1,7 @@
 package com.clock.daemon;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -18,6 +20,10 @@ import com.clock.daemon.service.WhiteService;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private final static String TAG = MainActivity.class.getSimpleName();
+    /**
+     * 黑色唤醒广播的action
+     */
+    private final static String BLACK_WAKE_ACTION = "com.wake.black";
 
     private ServiceConnection mGrayServiceConnection = new ServiceConnection() {
         @Override
@@ -74,7 +80,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startService(grayIntent);
             bindService(grayIntent, mGrayServiceConnection, Context.BIND_AUTO_CREATE);
 
-        } else if (viewId == R.id.btn_black) { //拉帮结派，黑色保活手段
+        } else if (viewId == R.id.btn_black) { //拉帮结派，黑色保活手段，利用广播唤醒队友
+            Intent blackIntent = new Intent();
+            blackIntent.setAction(BLACK_WAKE_ACTION);
+            sendBroadcast(blackIntent);
+
+            /*AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+            PendingIntent operation = PendingIntent.getBroadcast(this, 123, blackIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+            alarmManager.set(AlarmManager.RTC, System.currentTimeMillis(), operation);*/
 
         } else if (viewId == R.id.btn_background_service) {//普通的后台进程
             Intent bgIntent = new Intent(this, BackgroundService.class);

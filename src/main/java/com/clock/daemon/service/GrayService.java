@@ -72,7 +72,7 @@ public class GrayService extends Service {
         //发送唤醒广播来促使挂掉的UI进程重新启动起来
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         Intent alarmIntent = new Intent();
-        alarmIntent.setAction(WakeReceiver.WAKE_ACTION);
+        alarmIntent.setAction(WakeReceiver.GRAY_WAKE_ACTION);
         PendingIntent operation = PendingIntent.getBroadcast(this, WAKE_REQUEST_CODE, alarmIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), ALARM_INTERVAL, operation);
 

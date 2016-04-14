@@ -23,7 +23,7 @@
             android:enabled="true"
             android:exported="false">
             <intent-filter>
-                <action android:name="com.clock.wake" />
+                <action android:name="com.wake.gray" />
             </intent-filter>
         </receiver>
 
@@ -42,11 +42,6 @@
             android:enabled="true"
             android:exported="false"
             android:process=":gray" />
-        <service
-            android:name=".service.BlackService"
-            android:enabled="true"
-            android:exported="false"
-            android:process=":black" />
         <service
             android:name=".service.BackgroundService"
             android:enabled="true"

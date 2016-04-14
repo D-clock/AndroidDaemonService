@@ -24,12 +24,12 @@
         android:id="@+id/btn_black"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="黑色保活" />
+        android:text="黑色保活（发广播）" />
 
     <Button
         android:id="@+id/btn_background_service"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="一个后台 Service 进程" />
+        android:text="普通后台 Service 进程" />
 
 </LinearLayout>

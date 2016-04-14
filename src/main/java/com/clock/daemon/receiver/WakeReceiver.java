@@ -11,12 +11,15 @@ public class WakeReceiver extends BroadcastReceiver {
 
     private final static String TAG = WakeReceiver.class.getSimpleName();
 
-    public final static String WAKE_ACTION = "com.clock.wake";
+    /**
+     * 灰色保活手段唤醒广播的action
+     */
+    public final static String GRAY_WAKE_ACTION = "com.wake.gray";
 
     @Override
     public void onReceive(Context context, Intent intent) {
         String action = intent.getAction();
-        if (WAKE_ACTION.equals(action)) {
+        if (GRAY_WAKE_ACTION.equals(action)) {
             Log.i(TAG, "wake !! wake !! ");
 
             Intent wakeIntent = new Intent(context, WakeNotifyService.class);
