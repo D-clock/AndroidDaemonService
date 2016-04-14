@@ -4,7 +4,8 @@
 isForeground=true 标记着这个进程为前台进程。
 
 oom_adj的值为判断依据是从哪里来的？作用的出处在哪？？？Google文档自己有说吗？
-很好的讲解了 Android Low Memory Killer 机制的一篇文章，从源码的角度分析的oom_adj的作用：http://www.cnblogs.com/angeldevil/archive/2013/05/21/3090872.html
+
+oom_adj杀进程的策略来自Linux内核本身的机制。很好的讲解了 Android Low Memory Killer 机制的一篇文章，从源码的角度分析的oom_adj的作用：http://www.cnblogs.com/angeldevil/archive/2013/05/21/3090872.html
 杀进程的管理机制 Android Low Memory Killer，涉及到Framework层关键的Java类，ActivityManager.RunningAppProcessInfo、ActivityServiceManager、ProcessList。涉及到的Kernel层的关键类，lowmemorykiller.c、lowmem_shrink.c
 
 看看 ServiceRecord 里面的代码，是如何让微信的代码实现那两种bug的方式的
