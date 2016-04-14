@@ -9,7 +9,7 @@ oom_adj的值为判断依据是从哪里来的？作用的出处在哪？？？G
 
 看看 ServiceRecord 里面的代码，是如何让微信的代码实现那两种bug的方式的
 
-
+杀死进程的策略，官方文档是怎么说的：http://developer.android.com/guide/components/processes-and-threads.html
 
 
 微信怎么实现push进程唤醒worker进程的，代码实现的思路是。。。不可能直接startActivity吧，BroadcastReceiver也不可能把（10s钟限制），那么后台偷偷干活的只有Service了。
