@@ -8,11 +8,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.IBinder;
-import android.os.RemoteException;
 import android.util.Log;
 
-import com.clock.daemon.BinderPool;
-import com.clock.daemon.GrayServiceHelper;
 import com.clock.daemon.receiver.WakeReceiver;
 
 /**
@@ -23,8 +20,6 @@ import com.clock.daemon.receiver.WakeReceiver;
  */
 public class GrayService extends Service {
 
-    public final static int GRAY_BINDER_CODE = 1234;
-
     private final static String TAG = GrayService.class.getSimpleName();
     /**
      * 定时唤醒的时间间隔，5分钟
@@ -32,25 +27,7 @@ public class GrayService extends Service {
     private final static int ALARM_INTERVAL = 5 * 60 * 1000;
     private final static int WAKE_REQUEST_CODE = 6666;
 
-    private final static int GRAY_SERVICE_ID = 1001;
-
-    private IBinder mBinderPool = new BinderPool.Stub() {
-        @Override
-        public IBinder getBinderHelper(int binderCode) throws RemoteException {
-            if (binderCode == GRAY_BINDER_CODE) {
-                return mGrayServiceHelper;
-            } else {
-                return null;
-            }
-        }
-    };
-
-    private IBinder mGrayServiceHelper = new GrayServiceHelper.Stub() {
-        @Override
-        public void say(String something) throws RemoteException {
-            Log.i(TAG, "GrayService say: " + something);
-        }
-    };
+    private final static int GRAY_SERVICE_ID = -1001;
 
     @Override
     public void onCreate() {
@@ -76,12 +53,12 @@ public class GrayService extends Service {
         PendingIntent operation = PendingIntent.getBroadcast(this, WAKE_REQUEST_CODE, alarmIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), ALARM_INTERVAL, operation);
 
-        return super.onStartCommand(intent, flags, startId);
+        return START_STICKY;
     }
 
     @Override
     public IBinder onBind(Intent intent) {
-        return mBinderPool;
+        throw new UnsupportedOperationException("Not yet implemented");
     }
 
     @Override
@@ -105,7 +82,7 @@ public class GrayService extends Service {
         public int onStartCommand(Intent intent, int flags, int startId) {
             Log.i(TAG, "InnerService -> onStartCommand");
             startForeground(GRAY_SERVICE_ID, new Notification());
-            stopForeground(true);
+            //stopForeground(true);
             stopSelf();
             return super.onStartCommand(intent, flags, startId);
         }

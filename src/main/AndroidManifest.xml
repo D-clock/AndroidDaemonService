@@ -51,6 +51,11 @@
             android:name=".receiver.WakeReceiver$WakeNotifyService"
             android:enabled="true"
             android:exported="false" />
+
+        <service
+            android:name=".receiver.WakeReceiver$WakeGrayInnerService"
+            android:enabled="true"
+            android:exported="false" />
     </application>
 
 </manifest>
